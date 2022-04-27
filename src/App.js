@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import AllAnimals from './Components/AllAnimals'
 
 function App() {
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className = 'container'>
+        <header>
+          <div className="wrapper">
+            <h3 class="m-5">Fabrices, Marios und Rainers Streichelzoo</h3>
+          </div>
+        </header>
+        
+        <main>
+        <div className="wrapper">
+        <div class="row">  
+        <AllAnimals />
+        </div>
+        </div>
+        </main>
+      </div>
+      
+
+
     </div>
   );
 }
