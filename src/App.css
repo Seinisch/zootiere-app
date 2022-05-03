@@ -28,3 +28,40 @@ a.link {
   border: 1px solid red;
 }
 */
+
+*,
+*:before,
+*::after  {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body  {
+  background-image: url(./images/animals.jpg);
+  background-repeat: repeat;
+  background-size: auto;
+  text-align: center;
+  color: black;
+  z-index: -1;
+}
+.single-animal-container  {
+  margin-top: 50px;
+  background-color: aliceblue;
+}
+
+.animal-picture {
+  max-width: 100%;
+}
+
+.details-button {
+  padding-top: 20px;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  background: blue;
+}
+
+.animal-container {
+  margin-top: 30px;
+}
