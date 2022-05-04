@@ -50,6 +50,7 @@ a.link {
   padding: 0px 100px;
   display: flex !important;
   justify-content: center !important;
+  z-index: 1000000;
 }
 
 /*
