@@ -1,31 +1,42 @@
-import './App.css';
-import AllAnimals from './Components/AllAnimals';
-import { Routes, Route } from 'react-router-dom';
-import SinglePost from './Components/Animal'
-import { useEffect, useState } from 'react';
-import {client} from './Components/FetchAllData';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import AllAnimals from "./Components/AllAnimals";
+import Animal from "./Components/Animal";
+import { useEffect, useState } from "react";
+import * as contentful from "contentful";
 
 function App() {
-  const [animals, setAnimals] = useState([]);
-  
+  const zoo = contentful.createClient({
+    space: process.env.REACT_APP_SPACE_ID,
+    accessToken: process.env.REACT_APP_ACCESS_TOKEN,
+  });
 
-    useEffect(() => {
-    client.getEntries()
-          .then((response) => {
+  const [animals, setAnimals] = useState(null);
+
+  useEffect(() => {
+    function getAllAnimals() {
+      zoo
+        .getEntries()
+        .then((response) => {
           setAnimals(response.items);
-          })
-          .catch((error) => console.log(error));
-    }, []);
+          //console.log(response.items);
+        })
+        .catch((error) => console.log(error));
+    }
+    getAllAnimals();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="App">
-      <div className = 'container'>
-        <header>
-          <div className="wrapper">
-            <h3 className="m-5">Fabrices, Marios und Rainers Streichelzoo</h3>
-          </div>
+      <header className="d-flex justify-content-center">
+            <h1 className="my-5 head-h1 w-90">
+              Fabrices, Marios und Rainers Streichelzoo
+            </h1>
+
         </header>
+      <div className="container">
         
+
         <main>
         <div className="wrapper">
         <div className="row">  
@@ -36,11 +47,26 @@ function App() {
         </Routes>
         </div>
         </div>
+
         </main>
-      </div>
+
       
 
 
+      </div>
+      <footer id="footer-color" className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div className="col-md-4 d-flex align-items-center">
+      
+            <span className="text-muted">© 2022 Streichelzoo, Inc</span>
+        </div>
+
+        <ul class="nav col-md-4 list-unstyled justify-content-end mr-5" >
+            <li className="ms-3"><i className="fa fa-twitter 2x" style={{fontSize: '48px'}}></i></li>
+            <li className="ms-3"><i className="fa fa-whatsapp 2x" style={{fontSize: '48px'}}></i></li>
+            <li className="ms-3"><i className="fa fa-facebook 2x" style={{fontSize: '48px'}}></i></li>
+            <li className="ms-3"><i className="fa fa-instagram 2x" style={{fontSize: '48px'}}></i></li>
+        </ul>
+    </footer>
     </div>
   );
 }
