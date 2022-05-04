@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function AllAnimals({ animals }) {
   return (
-    <div className="wrapper">
+    <div className="wrapper pb-5">
       <div className="row mb-5">
         {animals
           ? animals.map((animal) => (
@@ -14,7 +14,7 @@ export default function AllAnimals({ animals }) {
                 >
                   <img
                     src={animal.fields.picture.fields.file.url}
-                    className="card-img-top img-fluid"
+                    className="card-img-top img-fluid mt-3"
                     alt={animal.fields.animalName}
                   />
                   <div className="card-body h-75">
