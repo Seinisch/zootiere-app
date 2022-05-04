@@ -32,16 +32,22 @@ function App() {
             <h1 className="my-5 head-h1 w-90">
               Fabrices, Marios und Rainers Streichelzoo
             </h1>
+
         </header>
       <div className="container">
         
 
         <main>
-          {/* RouterConfig */}
-          <Routes>
-            <Route path="/" element={<AllAnimals animals={animals} />} />
-            <Route path="/:id" element={<Animal animals={animals} />} />
-          </Routes>
+        <div className="wrapper">
+        <div className="row">  
+        
+        <Routes>
+          <Route path="/" element={<AllAnimals animals={animals}/>}/>
+          <Route path="/:id" element={<SinglePost />}/>
+        </Routes>
+        </div>
+        </div>
+
         </main>
 
       
